@@ -23,8 +23,8 @@ public class CoinChange {
 	 * 
 	 * @param T => 주어야하는 거스름 돈
 	 * @param n => 동전의 종류
-	 * @param C => 동전의 액면가를 감소순으로 저장하고 있는 배열
-	 * @param X => 거스름돈으로 돌려줄 i번째 동전의 개수
+	 * @param coin => 동전의 액면가를 감소순으로 저장하고 있는 배열
+	 * @param coin_value => 거스름돈으로 돌려줄 i번째 동전의 개수
 	 * @return
 	 */
 	public static int coin_change(int T, int n, int[] coin, int[] coin_value) {
@@ -32,7 +32,7 @@ public class CoinChange {
 		// 동전의 종류에서 큰 동전부터 작은 동전의 수만큼 반복문 실행
 		for (int i = 0; i < n; i++) {
 			
-			 // 동전의 종류(C[i])마다 거슬러주어야하는 값(T)을 나눈 후 각 사용되는 동전의 개수(coin_kind[i]) 확인
+			 // 동전의 종류(coin[i])마다 거슬러주어야하는 값(T)을 나눈 후 각 사용되는 동전의 개수(coin_value[i]) 확인
 			coin_value[i] = T / coin[i];
 			System.out.println(coin[i] + "원: " + coin_value[i] + "개");
 		
