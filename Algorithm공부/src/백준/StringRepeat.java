@@ -2,7 +2,6 @@ package 백준;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 /**
  * 문자열 S를 입력받은 후에, 각 문자를 R번 반복해 새 문자열 P를 만든 후 출력하는 프로그램을 작성하시오. 즉, 첫 번째 문자를 R번
@@ -20,22 +19,33 @@ import java.util.StringTokenizer;
  */
 public class StringRepeat {
 
+	/*
+	 * 예제 입력 1   예제 출력 1
+	 * 2 
+	 * 3 ABC 	 AAABBBCCC 
+	 * 5 /HTP 	 /////HHHHHTTTTTPPPPP
+	 */
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine()); // 테스트 케이스 갯수
-		int[] R = new int[T];
+		int R = 0; // 문자열 입력 횟수
 
-		StringBuffer sb = new StringBuffer();
+		// 테스트 케이스 만큼 반복
 		for (int i = 0; i < T; i++) {
-			R[i] = Integer.parseInt(br.readLine());
-			for (int j = 0; j < R[i]; j++) {
-				String S = br.readLine();
-				for (int r = 0; r < R[i]; r++) {
-					sb.append(S);
+
+			StringBuffer P = new StringBuffer();
+			R = Integer.parseInt(br.readLine());
+			String[] S = new String[R];
+			for (int j = 0; j < R; j++) {
+				S[j] = br.readLine();
+				for(int index = 0; index < R; index++) {
+					P.append(S[j].trim());							
 				}
 			}
-		}
-		System.out.println(sb.toString());
-	}
+		
+			System.out.println(P.toString());
+		}		
+		br.close();
+	}// end of main
 }
