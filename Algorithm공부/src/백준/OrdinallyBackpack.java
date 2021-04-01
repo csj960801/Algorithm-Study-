@@ -1,6 +1,7 @@
 package 백준;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class OrdinallyBackpack {
 
@@ -17,15 +18,15 @@ public class OrdinallyBackpack {
 		int k = Integer.parseInt(br.readLine());
 
 		// 각 물건의 무게
-		int[] w = new int[n + 1];
+		int[] w = new int[n];
 
 		// 각 물건의 가치
-		int[] v = new int[n + 1];
+		int[] v = new int[n];
 
 		int[] dp = new int[k + 1];
 
 		// 물건의 무게와 가치 설정
-		for (int i = 1; i <= n; i++) {
+		for (int i = 0; i < n; i++) {
 			System.out.print("물건의 무게: ");
 			w[i] = Integer.parseInt(br.readLine());
 
@@ -34,10 +35,12 @@ public class OrdinallyBackpack {
 		} // end of for1
 
 		// 준서가 버틸 수 있는 물건의 무게 만큼의 가치 합구하기
-		for (int i = 1; i <= n; i++) {
+		// 반복문이 i 만큼 돌면서 무게(j)를 1씩 감소하는 동시에 j(버틸 수 있는 무게) - w[i](물품 무게) 계산
+		for (int i = 0; i < n; i++) {
 			for (int j = k; j - w[i] >= 0; j--) {
-				dp[j] = Math.max(dp[j], dp[j - w[i]] + v[i]);
-				System.out.println("과정:" + dp[j]);
+				System.out.println("i:" + i + ", j:" + j);
+				System.out.println(Arrays.toString(dp));
+				dp[j] = Math.max(dp[j], dp[j - w[i]] + v[i]);// dp배열안 최댓값 출력
 			}
 		}
 		System.out.println(dp[k]);
