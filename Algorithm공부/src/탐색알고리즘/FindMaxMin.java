@@ -34,13 +34,12 @@ public class FindMaxMin {
 		int large = 0;// 큰 값 비교
 
 		Arrays.sort(A);
-		// System.out.println(Arrays.toString(A));
+		System.out.println(Arrays.toString(A));
 		for (int i = 0; i < A.length; i++) {
 
 			if (A[i] > max) {
 				large = A[i];
 			}
-
 			result[0] = small;
 			result[1] = large;
 
@@ -55,24 +54,24 @@ public class FindMaxMin {
 
 		System.out.print("실행 케이스:");
 		int n = Integer.parseInt(br.readLine());
-		int[] A = new int[n + 1];
+		int[] A = new int[n];
 
-		// 계속 for문 만 사용하는게 질려서 바꿔봄
-		int i = 0;
-		while (true) {
-			i++;
+// 계속 for문 만 사용하는게 질려서 한번 작성해 봄
+//		int i = 0;
+//		while (true) {
+//			i++;
+//			System.out.println(i);
+//			A[i] = Integer.parseInt(br.readLine());
+//			// Arrays.sort(A);
+//
+//			if (i == (n + 1)) {
+//				break;
+//			}
+//		} // end of while
+
+		for (int i = 0; i < n; i++) {
 			A[i] = Integer.parseInt(br.readLine());
-
-			// 만일 index 초기값이 0 이있을 경우 1로 초기화 해줌.
-			if (A[0] == 0) {
-				A[0] = 1;
-			}
-
-			if (i == n) {
-				break;
-			}
-		} // end of while
-
+		}
 		for (int result : Find(A, n, 0, 0)) {
 			System.out.println(result);
 		}
