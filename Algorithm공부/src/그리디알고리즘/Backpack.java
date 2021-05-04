@@ -40,31 +40,27 @@ public class Backpack {
 		for (int i = 0; i < n; i++) {
 			x[i] = 0;// 리턴값 초기화
 			bag = M;// 배낭의 무게 설정
-			// System.out.println(Arrays.toString(w));
-			// System.out.println(Arrays.toString(p));
-			// System.out.println(x[i]);
 		}
 
-		// 자 이제 물건을 하나씩 넣어보자~
-		for (int i = 0; i < n; i++) {
-			if (w[i] <= bag) {// 물체의 무게가 배낭의 용량보다 작을 경우
-				x[i] = p[i];// 물체를 배낭에 넣도록함.
-				bag = bag - w[i]; // 배낭의 용량을 물체의 무게만큼 감소
-				// System.out.println("넣은 물건: " + w[i]);
-				// System.out.println(bag);
-			} else {
+		// 이익이 큰 물건 부터 넣기
+		int[] profit = new int[n];
+		for (int j = 0; j < n; j++) {
+			profit[j] = p[j] / w[j];
+
+			if (bag >= w[j]) {
+				// 가치가 큰 물건부터 넣도록함.
+				result = result + profit[j];
+				System.out.println("가치가 큰 물건 담은 후: " + w[j] + "\n");
+				System.out.println("가치가 큰 물건:" + result + "\n");
+				bag -= w[j];
+			}
+			// 배낭에 용량이 없으면 리턴
+			else {
 				break;
 			}
-
-			// 남은 배낭 용량이 있을 경우
-			if (w[i] <= bag) {
-				// x[i] = bag / w[i];
-				System.out.println("남은 배낭 용량: " + bag / w[i]);
-			}
-			System.out.println("산출 이익:" + x[i]);
-			result = result + x[i];
 		}
 		return result;
+
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -86,7 +82,7 @@ public class Backpack {
 		// 물체를 챙길 시 생기는 이익 설정
 		System.out.println("물체의 이익: ");
 		int[] p = new int[n];
-		for (int i = 0; i < w.length; i++) {
+		for (int i = 0; i < p.length; i++) {
 			p[i] = Integer.parseInt(input.readLine());
 		}
 
