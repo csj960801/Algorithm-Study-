@@ -17,7 +17,7 @@ public class improved_BubbleSort {
 	 * @param a => 정렬 배열
 	 * @return
 	 */
-	public static String bubbleSort(int n, int[] a, BufferedReader br) throws Exception {
+	public static String bubbleSort(int n, int[] a) throws Exception {
 
 		int result = 0;
 		boolean check = false;
@@ -59,6 +59,6 @@ public class improved_BubbleSort {
 			a[i] = Integer.parseInt(br.readLine());
 		}
 
-		System.out.println("정렬결과: " + bubbleSort(n, a, br));
+		System.out.println("정렬결과: " + bubbleSort(n, a));
 	}
 }
