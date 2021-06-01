@@ -28,7 +28,7 @@ public class SelectionSort {
 				int min = i;// 최솟값 적용
 
 				for (int j = i + 1; j < A.length; j++) {
-					
+
 					if (A[j] < A[min]) {
 						min = j;
 					}
@@ -43,9 +43,7 @@ public class SelectionSort {
 
 			System.out.println(Arrays.toString(A));
 
-		} catch (
-
-		Exception e) {
+		} catch (Exception e) {
 			System.out.println("예외발생: " + e.toString());
 		}
 	}
